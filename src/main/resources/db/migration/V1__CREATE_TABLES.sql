@@ -1,0 +1,6 @@
+CREATE TABLE bruxos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    casa VARCHAR(20) NOT NULL,
+    dtype VARCHAR(31)
+);
