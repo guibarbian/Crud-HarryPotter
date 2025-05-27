@@ -18,7 +18,7 @@ public class BruxoSonserina extends Bruxo implements Magia {
     }
 
     @Override
-    public String lancarFeitico(String feitico) {
+    public String lancarFeitico() {
         return "Serpensortia! - O bruxo da Sonserina lançou seu feitiço!";
     }
 }

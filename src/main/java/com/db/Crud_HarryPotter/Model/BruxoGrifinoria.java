@@ -16,7 +16,7 @@ public class BruxoGrifinoria extends Bruxo implements Magia{
     }
 
     @Override
-    public String lancarFeitico(String feitico) {
+    public String lancarFeitico() {
         return "Expelliarmus! - O bruxo da Grifinória lançou seu feitiço!";
     }
 }

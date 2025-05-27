@@ -1,6 +1,7 @@
 package com.db.Crud_HarryPotter.Service.IMPL;
 
 import com.db.Crud_HarryPotter.Exception.BadRequestException;
+import com.db.Crud_HarryPotter.Exception.IllegalArgumentException;
 import com.db.Crud_HarryPotter.Exception.NotFoundException;
 import com.db.Crud_HarryPotter.Model.Bruxo;
 import com.db.Crud_HarryPotter.Model.BruxoGrifinoria;
@@ -40,7 +41,7 @@ public class BruxoServiceImpl implements BruxoService {
             case "Sonserina" -> new BruxoSonserina();
             default -> {
                 log.warn("Casa não reconhecida: {}", dto.getCasa());
-                throw new BadRequestException("Casa não reconhecida: " + dto.getCasa());
+                throw new IllegalArgumentException("Casa não reconhecida: " + dto.getCasa());
             }
         };
 
@@ -69,7 +70,7 @@ public class BruxoServiceImpl implements BruxoService {
             case "Sonserina" -> new BruxoSonserina();
             default -> {
                 log.warn("Casa não reconhecida: {}", dto.getCasa());
-                throw new BadRequestException("Casa não reconhecida: " + dto.getCasa());
+                throw new IllegalArgumentException("Casa não reconhecida: " + dto.getCasa());
             }
         };
 
