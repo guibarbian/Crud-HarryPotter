@@ -1,6 +1,5 @@
 package com.db.Crud_HarryPotter.Service.IMPL;
 
-import com.db.Crud_HarryPotter.Exception.BadRequestException;
 import com.db.Crud_HarryPotter.Exception.IllegalArgumentException;
 import com.db.Crud_HarryPotter.Exception.NotFoundException;
 import com.db.Crud_HarryPotter.Model.Bruxo;
@@ -35,18 +34,18 @@ public class BruxoServiceImpl implements BruxoService {
 
     @Override
     public BruxoResponseDTO createBruxo(BruxoRequestDTO dto) {
-        log.info("Criando um novo bruxo: {}", dto.getNome());
-        Bruxo novoBruxo = switch (dto.getCasa()){
+        log.info("Criando um novo bruxo: {}", dto.nome());
+        Bruxo novoBruxo = switch (dto.casa()){
             case "Grifinoria" -> new BruxoGrifinoria();
             case "Sonserina" -> new BruxoSonserina();
             default -> {
-                log.warn("Casa não reconhecida: {}", dto.getCasa());
-                throw new IllegalArgumentException("Casa não reconhecida: " + dto.getCasa());
+                log.warn("Casa não reconhecida: {}", dto.casa());
+                throw new IllegalArgumentException("Casa não reconhecida: " + dto.casa());
             }
         };
 
-        novoBruxo.setNome(dto.getNome());
-        novoBruxo.setCasa(dto.getCasa());
+        novoBruxo.setNome(dto.nome());
+        novoBruxo.setCasa(dto.casa());
 
         log.info("Sucesso em criar o bruxo {}", novoBruxo.getNome());
         Bruxo savedBruxo = bruxoRepository.save(novoBruxo);
@@ -64,19 +63,19 @@ public class BruxoServiceImpl implements BruxoService {
             throw new NotFoundException("Bruxo com ID: " + id + " não encontrado.");
         }
 
-        log.info("Criando um novo bruxo: {}", dto.getNome());
-        Bruxo bruxoAtualizado = switch (dto.getCasa()){
+        log.info("Criando um novo bruxo: {}", dto.nome());
+        Bruxo bruxoAtualizado = switch (dto.casa()){
             case "Grifinoria" -> new BruxoGrifinoria();
             case "Sonserina" -> new BruxoSonserina();
             default -> {
-                log.warn("Casa não reconhecida: {}", dto.getCasa());
-                throw new IllegalArgumentException("Casa não reconhecida: " + dto.getCasa());
+                log.warn("Casa não reconhecida: {}", dto.casa());
+                throw new IllegalArgumentException("Casa não reconhecida: " + dto.casa());
             }
         };
 
         bruxoAtualizado.setId(id);
-        bruxoAtualizado.setNome(dto.getNome());
-        bruxoAtualizado.setCasa(dto.getCasa());
+        bruxoAtualizado.setNome(dto.nome());
+        bruxoAtualizado.setCasa(dto.casa());
 
         Bruxo savedBruxo = bruxoRepository.save(bruxoAtualizado);
 

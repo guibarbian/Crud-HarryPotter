@@ -46,8 +46,7 @@ public class BruxoControllerTest {
 
     @Test
     public void testCreateBruxoGrifionria() throws Exception{
-        BruxoRequestDTO dto = BruxoRequestDTO.builder()
-                .nome("Harry Potter").casa("Grifinoria").build();
+        BruxoRequestDTO dto = new BruxoRequestDTO("Harry Potter", "Grifinoria");
 
         mockMvc.perform(post(baseUrl)
                 .content(objectMapper.writeValueAsString(dto))
@@ -59,8 +58,7 @@ public class BruxoControllerTest {
 
     @Test
     public void testCreateBruxoSonserina() throws Exception{
-        BruxoRequestDTO dto = BruxoRequestDTO.builder()
-                .nome("Drako Malfoy").casa("Sonserina").build();
+        BruxoRequestDTO dto = new BruxoRequestDTO("Drako Malfoy", "Sonserina");
 
         mockMvc.perform(post(baseUrl)
                 .content(objectMapper.writeValueAsString(dto))
@@ -77,8 +75,7 @@ public class BruxoControllerTest {
 
         BruxoGrifinoria bruxoSalvo = bruxoRepository.save(bruxoGrifinoria);
 
-        BruxoRequestDTO dto = BruxoRequestDTO.builder()
-                .nome("Harry Potter Jr.").casa("Grifinoria").build();
+        BruxoRequestDTO dto = new BruxoRequestDTO("Harry Potter Jr.", "Grifinoria");
 
         mockMvc.perform(put(baseUrl + "/" + bruxoSalvo.getId())
                 .content(objectMapper.writeValueAsString(dto))

@@ -1,9 +1,7 @@
 package com.db.Crud_HarryPotter.Controller.IMPL;
 
 import com.db.Crud_HarryPotter.Controller.BruxoController;
-import com.db.Crud_HarryPotter.Repository.BruxoRepository;
 import com.db.Crud_HarryPotter.Service.BruxoService;
-import com.db.Crud_HarryPotter.Service.IMPL.BruxoServiceImpl;
 import com.db.Crud_HarryPotter.dto.BruxoRequestDTO;
 import com.db.Crud_HarryPotter.dto.BruxoResponseDTO;
 import lombok.RequiredArgsConstructor;

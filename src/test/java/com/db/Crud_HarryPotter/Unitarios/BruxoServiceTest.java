@@ -5,7 +5,6 @@ import com.db.Crud_HarryPotter.Model.Bruxo;
 import com.db.Crud_HarryPotter.Model.BruxoGrifinoria;
 import com.db.Crud_HarryPotter.Model.BruxoSonserina;
 import com.db.Crud_HarryPotter.Repository.BruxoRepository;
-import com.db.Crud_HarryPotter.Service.BruxoService;
 import com.db.Crud_HarryPotter.Service.IMPL.BruxoServiceImpl;
 import com.db.Crud_HarryPotter.dto.BruxoRequestDTO;
 import com.db.Crud_HarryPotter.dto.BruxoResponseDTO;
@@ -92,8 +91,8 @@ public class BruxoServiceTest {
     @Test
     public void testUpdateBruxo() {
         BruxoRequestDTO requestDTO = new BruxoRequestDTO("Harry Potter", "Grifinoria");
-        bruxo1.setNome(requestDTO.getNome());
-        bruxo1.setCasa(requestDTO.getCasa());
+        bruxo1.setNome(requestDTO.nome());
+        bruxo1.setCasa(requestDTO.casa());
 
         when(bruxoRepository.findById(1L)).thenReturn(java.util.Optional.of(bruxo1));
         when(bruxoRepository.save(bruxo1)).thenReturn(bruxo1);
