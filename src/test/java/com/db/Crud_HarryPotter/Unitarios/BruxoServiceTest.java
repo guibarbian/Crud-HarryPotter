@@ -1,6 +1,7 @@
 package com.db.Crud_HarryPotter.Unitarios;
 
 import com.db.Crud_HarryPotter.Exception.NotFoundException;
+import com.db.Crud_HarryPotter.Exception.IllegalArgumentException;
 import com.db.Crud_HarryPotter.Model.Bruxo;
 import com.db.Crud_HarryPotter.Model.BruxoGrifinoria;
 import com.db.Crud_HarryPotter.Model.BruxoSonserina;
@@ -42,7 +43,7 @@ public class BruxoServiceTest {
         List<BruxoResponseDTO> result = bruxoService.getAllBruxos();
 
         assertEquals(2, result.size());
-        assertEquals("Harry Potter", result.get(0).getNome());
+        assertEquals("Harry Potter", result.getFirst().nome());
     }
 
     @Test
@@ -55,8 +56,8 @@ public class BruxoServiceTest {
 
         BruxoResponseDTO response = bruxoService.createBruxo(requestDTO);
 
-        assertEquals("Drako Malfoy", response.getNome());
-        assertEquals("Sonserina", response.getCasa());
+        assertEquals("Drako Malfoy", response.nome());
+        assertEquals("Sonserina", response.casa());
         assertEquals("BruxoSonserina", bruxoAux.getClass().getSimpleName());
     }
 
@@ -70,8 +71,8 @@ public class BruxoServiceTest {
 
         BruxoResponseDTO response = bruxoService.createBruxo(requestDTO);
 
-        assertEquals("Harry Potter", response.getNome());
-        assertEquals("Grifinoria", response.getCasa());
+        assertEquals("Harry Potter", response.nome());
+        assertEquals("Grifinoria", response.casa());
         assertEquals("BruxoGrifinoria", bruxoAux.getClass().getSimpleName());
     }
 
@@ -99,8 +100,8 @@ public class BruxoServiceTest {
 
         BruxoResponseDTO response = bruxoService.updateBruxo(1L, requestDTO);
 
-        assertEquals("Harry Potter", response.getNome());
-        assertEquals("Grifinoria", response.getCasa());
+        assertEquals("Harry Potter", response.nome());
+        assertEquals("Grifinoria", response.casa());
     }
 
     @Test
